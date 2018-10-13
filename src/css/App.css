@@ -21,3 +21,18 @@
 .App-link {
   color: #61dafb;
 }
+
+.news-container {
+  margin: 40px;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.news-card {
+  width: 25%;
+  margin: 1.5%;
+  border: 1px solid lightgrey;
+  padding: 20px;
+  box-shadow: 3px 3px rgba(0,0,0,0.2)
+}

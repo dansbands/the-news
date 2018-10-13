@@ -17,7 +17,7 @@ class NewsContainer extends React.Component {
   }
 
   filterByImage = articles => {
-    return articles.filter(a => a.urlToImage)
+    return articles.filter(a => a.urlToImage !== null)
   }
 
   renderArticles = () => {
@@ -31,10 +31,9 @@ class NewsContainer extends React.Component {
   }
 
   render () {
-    console.log('news', this.filterByImage(this.state.articles));
+    // console.log('news', this.filterByImage(this.state.articles));
     return (
-      <div>
-        <h3>News</h3>
+      <div className="news-container">
         {this.renderArticles()}
       </div>
     )

@@ -1,5 +1,6 @@
 import React from 'react'
 import { getNews } from '../utils/api.js'
+import NewsCard from './newsCard'
 
 
 
@@ -15,16 +16,22 @@ class NewsContainer extends React.Component {
     })
   }
 
+  filterByImage = articles => {
+    return articles.filter(a => a.urlToImage)
+  }
+
   renderArticles = () => {
     return this.state.articles.map(a => {
       return (
-        <div>{a.title}</div>
+        <NewsCard
+          key={a.title}
+          data={a} />
       )
     })
   }
 
   render () {
-    console.log('news', this.state.articles);
+    console.log('news', this.filterByImage(this.state.articles));
     return (
       <div>
         <h3>News</h3>

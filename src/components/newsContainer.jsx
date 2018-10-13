@@ -5,20 +5,31 @@ import { getNews } from '../utils/api.js'
 
 class NewsContainer extends React.Component {
   state = {
-    news: []
+    articles: []
   }
 
   componentDidMount() {
     getNews()
     .then(news => {
-      this.setState({ news: news });
+      this.setState({ articles: news.articles });
+    })
+  }
+
+  renderArticles = () => {
+    return this.state.articles.map(a => {
+      return (
+        <div>{a.title}</div>
+      )
     })
   }
 
   render () {
-    console.log('news', this.state.news);
+    console.log('news', this.state.articles);
     return (
-      <div>News</div>
+      <div>
+        <h3>News</h3>
+        {this.renderArticles()}
+      </div>
     )
   }
 }
